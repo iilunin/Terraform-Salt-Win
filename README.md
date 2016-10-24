@@ -1,0 +1,1 @@
+Spin up and provision salt stack on Windows env in AWS

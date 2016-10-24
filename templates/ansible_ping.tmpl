@@ -1,0 +1,11 @@
+aws-win-host ansible_ssh_host=${ansible_ssh_host}
+
+[win]
+aws-win-host
+
+[win:vars]
+ansible_connection=winrm
+ansible_ssh_port=5985
+ansible_ssh_user=Administrator
+ansible_ssh_pass=newPwd123!
+
