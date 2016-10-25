@@ -11,6 +11,11 @@ variable "tags" {
 	}
 }
 
+variable "aws_instance_type"{
+#  default = "t2.large"
+  default = "m4.xlarge"
+}
+
 variable "new_pass" {
 	default = "newPwd123!"
 }
@@ -37,4 +42,12 @@ variable "ansible_file" {
 
 variable "ansible_ping_res" {
 	default = "output/ping.txt"
+}
+
+variable "default_vpc_id"{
+	default = "vpc-470f6622"
+}
+
+variable "winrm_port"{
+	default = "5985"
 }

@@ -10,7 +10,8 @@ data "template_file" "win_user_data" {
 	template = "${file("${var.templates_folder}/win_user_data.tmpl")}" 
 
 	vars {
-		minion_port = "5985"
-		admin_pass = "${var.new_pass}"
+		winrm_port = "${var.winrm_port}"
+		admin_pass = "${var.new_pass}",
 	}
 }
+

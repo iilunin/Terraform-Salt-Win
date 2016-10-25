@@ -1,10 +1,8 @@
 <script>
-  winrm quickconfig -q & winrm set winrm/config/winrs @{MaxMemoryPerShellMB="300"} & winrm set winrm/config @{MaxTimeoutms="1800000"} & winrm set winrm/config/service @{AllowUnencrypted="true"} & winrm set winrm/config/service/auth @{Basic="true"}
+winrm quickconfig -q & winrm set winrm/config/winrs @{MaxMemoryPerShellMB="300"} & winrm set winrm/config @{MaxTimeoutms="1800000"} & winrm set winrm/config/service @{AllowUnencrypted="true"} & winrm set winrm/config/service/auth @{Basic="true"}
 </script>
 <powershell>
-  netsh advfirewall firewall add rule name="WinRM in" protocol=TCP dir=in profile=any localport=${minion_port} remoteip=any localip=any action=allow
-  $admin = [adsi]("WinNT://./administrator, user")
-  $admin.psbase.invoke("SetPassword", "${admin_pass}")
-  curl https://repo.saltstack.com/windows/Salt-Minion-2016.3.3-AMD64-Setup.exe -OutFile %TEPM%\Salt-Minion-2016.3.3-AMD64-Setup.exe
-  %TEPM%\Salt-Minion-2016.3.3-AMD64-Setup.exe /S /master=yoursaltmaster /minion-name=yourminionname /start-service=1
+netsh advfirewall firewall add rule name="WinRM in" protocol=TCP dir=in profile=any localport=${winrm_port} remoteip=any localip=any action=allow
+$admin = [adsi]("WinNT://./administrator, user")
+$admin.psbase.invoke("SetPassword", "${admin_pass}")
 </powershell>

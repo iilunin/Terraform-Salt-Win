@@ -1,0 +1,5 @@
+*.pem
+*.pub
+*.tfstate
+*.tfstate.backup
+output
