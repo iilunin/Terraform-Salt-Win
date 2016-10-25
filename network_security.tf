@@ -40,8 +40,8 @@ resource "aws_security_group" "win" {
 
   # SALT access from anywhere
   ingress {
-	from_port   = "${var.salt_minion_port}"
-	to_port     = "${var.salt_minion_port}"
+	from_port   = "${var.winrm_port}"
+	to_port     = "${var.winrm_port}"
 	protocol    = "tcp"
 	cidr_blocks = ["0.0.0.0/0"]
   }

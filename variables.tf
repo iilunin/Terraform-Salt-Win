@@ -51,3 +51,4 @@ variable "default_vpc_id"{
 variable "winrm_port"{
 	default = "5985"
 }
+
